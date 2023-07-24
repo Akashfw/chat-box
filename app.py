@@ -10,6 +10,10 @@ app = Flask(__name__)
 CORS(app)
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
